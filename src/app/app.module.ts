@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {ClarityModule} from 'clarity-angular';
 import {UserService} from './user.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     ClarityModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -14,4 +14,8 @@ export class UserService {
   getUsers() {
     return this.users;
   }
+
+  addUser(user: User) {
+    this.users.push(user);
+  }
 }
