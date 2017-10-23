@@ -2,7 +2,7 @@
   <div class="col-xs-8">
     <div class="row flex-items-xs-between">
       <div class="col-xs-2">
-        <h1>Users</h1>
+        <h1>{{title}}</h1>
       </div>
       <div class="col-xs-2 flex-xs-bottom">
         <button class="btn btn-outline">add user</button>
@@ -29,16 +29,16 @@
       </thead>
 
       <tbody>
-      <tr>
+      <tr *ngFor="let user of users">
         <td>
           <clr-checkbox [clrChecked]="false">
           </clr-checkbox>
         </td>
-        <td>0</td>
-        <td>name</td>
-        <td>last name</td>
-        <td>email</td>
-        <td>18</td>
+        <td>{{user.id}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.age}}</td>
         <td><clr-icon shape="pencil"></clr-icon></td>
         <td><clr-icon shape="trash"></clr-icon></td>
       </tr>
