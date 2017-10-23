@@ -11,6 +11,7 @@ import {UserService} from './user.service';
 export class AppComponent implements OnInit {
   users: User[];
   title = 'Users';
+  basic = false;
 
   constructor(private userService: UserService) {}
 
