@@ -36,4 +36,8 @@ export class AppComponent implements OnInit {
     console.log('-->', this.newUser);
   }
 
+  onDeleteUser(user) {
+    this.userService.deleteUser(user);
+  }
+
 }

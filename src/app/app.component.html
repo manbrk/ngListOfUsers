@@ -38,7 +38,7 @@
         <td>{{user.email}}</td>
         <td>{{user.age}}</td>
         <td><clr-icon shape="pencil"></clr-icon></td>
-        <td><clr-icon shape="trash"></clr-icon></td>
+        <td><clr-icon shape="trash" (click)="onDeleteUser(user)"></clr-icon></td>
       </tr>
       </tbody>
     </table>

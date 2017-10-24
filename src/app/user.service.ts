@@ -18,4 +18,8 @@ export class UserService {
   addUser(user: User) {
     this.users.push(user);
   }
+
+  deleteUser(user: User) {
+    this.users.splice(this.users.indexOf(user), 1);
+  }
 }
