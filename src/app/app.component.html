@@ -5,7 +5,7 @@
         <h1>{{title}}</h1>
       </div>
       <div class="col-xs-2 flex-xs-bottom">
-        <button class="btn btn-outline" (click)="onAddUser()">add user</button>
+        <button class="btn btn-outline add-user" (click)="onAddUser()">add user</button>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
       </tr>
       </tbody>
     </table>
-    <button type="button" class="btn btn-outline" (click)="onDeleteCheckedUsers()">delete selected</button>
+    <button type="button" class="btn btn-outline delete-selected" (click)="onDeleteCheckedUsers()" *ngIf="selectedUser">delete selected</button>
   </div>
 </div>
 
