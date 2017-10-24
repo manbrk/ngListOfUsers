@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {User} from './user.model';
 
 @Injectable()
 export class UserService {
+  modalWindow = new EventEmitter<boolean>();
 
   private users: User[] = [
     new User(0, 'John', 'Connor', 'johnconnor@sky.net', 10),
