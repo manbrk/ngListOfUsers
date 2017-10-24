@@ -11,6 +11,8 @@ import {User} from '../user.model';
 export class EditUserComponent implements OnInit {
   @ViewChild('f') signupForm: NgForm;
   @Input() modalWindow: boolean;
+  @Input() editModeOn: boolean;
+  @Input() user: User;
   newUser: User;
 
   constructor(private userService: UserService) { }
@@ -19,11 +21,17 @@ export class EditUserComponent implements OnInit {
   }
 
   onCancel() {
+    console.log('-->', this.user);
     this.userService.modalWindow.emit(false);
+    this.userService.editMode.emit(false);
   }
 
   onSubmit() {
-    this.modalWindow = false;
+    if (this.editModeOn) {
+      this.userService.editMode.emit(false);
+      console.log('-->', this.user);
+    }
+
     this.newUser = new User(
       this.signupForm.value.id,
       this.signupForm.value.firstName,
@@ -32,6 +40,7 @@ export class EditUserComponent implements OnInit {
       this.signupForm.value.age
     );
     this.userService.addUser(this.newUser);
+
     console.log('-->', this.newUser);
 
     this.userService.modalWindow.emit(false);

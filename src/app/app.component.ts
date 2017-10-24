@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
   users: User[];
   title = 'Users';
   modalWindow = false;
+  editModeOn = false;
+  userForEdit: User;
 
   constructor(private userService: UserService) {}
 
@@ -19,14 +21,33 @@ export class AppComponent implements OnInit {
 
     this.userService.modalWindow
       .subscribe(
+        (modal: boolean) => {
+          this.modalWindow = modal;
+        }
+      );
+
+    this.userService.editMode
+      .subscribe(
         (mode: boolean) => {
-          this.modalWindow = mode;
+          this.editModeOn = mode;
         }
       );
   }
 
   onDeleteUser(user) {
     this.userService.deleteUser(user);
+  }
+
+  onEditUser(user) {
+    this.editModeOn = true;
+    console.log('-->', this.editModeOn);
+    this.modalWindow = true;
+    this.userForEdit = user;
+  }
+
+  onAddUser() {
+    this.modalWindow = true;
+    console.log('-->', this.editModeOn);
   }
 
 }

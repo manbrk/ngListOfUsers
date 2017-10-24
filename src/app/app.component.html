@@ -5,7 +5,7 @@
         <h1>{{title}}</h1>
       </div>
       <div class="col-xs-2 flex-xs-bottom">
-        <button class="btn btn-outline" (click)="modalWindow = true">add user</button>
+        <button class="btn btn-outline" (click)="onAddUser()">add user</button>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>{{user.age}}</td>
-        <td><clr-icon shape="pencil"></clr-icon></td>
+        <td><clr-icon shape="pencil" (click)="onEditUser(user)"></clr-icon></td>
         <td><clr-icon shape="trash" (click)="onDeleteUser(user)"></clr-icon></td>
       </tr>
       </tbody>
@@ -48,4 +48,12 @@
 <app-edit-user
   [modalWindow]="modalWindow"
 ></app-edit-user>
+
+<app-edit-user
+  *ngIf="editModeOn"
+  [user]="userForEdit"
+  [editModeOn]="editModeOn"
+  [modalWindow]="modalWindow"
+></app-edit-user>
+
 

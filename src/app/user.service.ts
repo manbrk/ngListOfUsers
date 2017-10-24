@@ -4,6 +4,7 @@ import {User} from './user.model';
 @Injectable()
 export class UserService {
   modalWindow = new EventEmitter<boolean>();
+  editMode = new EventEmitter<boolean>();
 
   private users: User[] = [
     new User(0, 'John', 'Connor', 'johnconnor@sky.net', 10),
