@@ -21,28 +21,29 @@ export class EditUserComponent implements OnInit {
   }
 
   onCancel() {
-    console.log('-->', this.user);
     this.userService.modalWindow.emit(false);
-    this.userService.editMode.emit(null);
   }
 
   onSubmit() {
-    if (this.editModeOn) {
+    if (this.editModeOn === 'edit') {
+      this.user.firstName = this.signupForm.value.firstName;
+      this.user.lastName = this.signupForm.value.lastName;
+      this.user.email = this.signupForm.value.email;
+      this.user.age = this.signupForm.value.age;
+
       this.userService.editMode.emit(null);
-      console.log('-->', this.user);
     }
 
-    this.newUser = new User(
-      this.signupForm.value.id,
-      this.signupForm.value.firstName,
-      this.signupForm.value.lastName,
-      this.signupForm.value.email,
-      this.signupForm.value.age
-    );
-    this.userService.addUser(this.newUser);
-
-    console.log('-->', this.newUser);
-
+    if (this.editModeOn === 'add') {
+      this.newUser = new User(
+        this.signupForm.value.id,
+        this.signupForm.value.firstName,
+        this.signupForm.value.lastName,
+        this.signupForm.value.email,
+        this.signupForm.value.age
+      );
+      this.userService.addUser(this.newUser);
+    }
     this.userService.modalWindow.emit(false);
   }
 }
