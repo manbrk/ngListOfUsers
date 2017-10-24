@@ -40,7 +40,8 @@ export class EditUserComponent implements OnInit {
         this.signupForm.value.firstName,
         this.signupForm.value.lastName,
         this.signupForm.value.email,
-        this.signupForm.value.age
+        this.signupForm.value.age,
+        this.signupForm.value.selected
       );
       this.userService.addUser(this.newUser);
     }

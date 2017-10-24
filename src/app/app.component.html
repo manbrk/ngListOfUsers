@@ -30,8 +30,10 @@
       <tbody>
       <tr *ngFor="let user of users">
         <td>
-          <clr-checkbox [clrChecked]="false">
-          </clr-checkbox>
+          <div class="checkbox">
+            <input type="checkbox" id="{{user.id}}" [(ngModel)]="user.selected" (change)="checkbox(user)">
+            <label for="{{user.id}}"></label>
+          </div>
         </td>
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
@@ -42,17 +44,16 @@
       </tr>
       </tbody>
     </table>
+    <button type="button" class="btn btn-outline" (click)="onDeleteCheckedUsers()">delete selected</button>
   </div>
 </div>
 
-<app-edit-user
-  *ngIf="editModeSelected === 'add'"
+<app-edit-user *ngIf="editModeSelected === 'add'"
   [editModeOn]="editModeSelected"
   [modalWindow]="modalWindow"
 ></app-edit-user>
 
-<app-edit-user
-  *ngIf="editModeSelected === 'edit'"
+<app-edit-user *ngIf="editModeSelected === 'edit'"
   [user]="userForEdit"
   [editModeOn]="editModeSelected"
   [modalWindow]="modalWindow"

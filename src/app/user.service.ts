@@ -7,10 +7,10 @@ export class UserService {
   editMode = new EventEmitter<string>();
 
   private users: User[] = [
-    new User(0, 'John', 'Connor', 'johnconnor@sky.net', 10),
-    new User(1, 'Sarah', 'Connor', 'sarahconnor@sky.net', 29),
-    new User(2, 'T-800', 'Model 101', 'schwarzenegger@sky.net', 44),
-    new User(3, 'John', 'Connor', 'johnconnor@sky.net', 10),
+    new User(0, 'John', 'Connor', 'johnconnor@sky.net', 10, false),
+    new User(1, 'Sarah', 'Connor', 'sarahconnor@sky.net', 29, false),
+    new User(2, 'T-800', 'Model 101', 'schwarzenegger@sky.net', 44, false),
+    new User(3, 'John', 'Connor', 'johnconnor@sky.net', 10, false),
   ];
 
   getUsers() {

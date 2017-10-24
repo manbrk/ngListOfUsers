@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   modalWindow = false;
   editModeSelected: string;
   userForEdit: User;
+  selectedUser: User[];
 
   constructor(private userService: UserService) {}
 
@@ -40,9 +41,7 @@ export class AppComponent implements OnInit {
 
   onEditUser(user) {
     this.editModeSelected = 'edit';
-    console.log('-->', this.editModeSelected);
     this.modalWindow = true;
-    console.log('-->', this.modalWindow);
     this.userForEdit = user;
   }
 
@@ -50,8 +49,15 @@ export class AppComponent implements OnInit {
     this.editModeSelected = 'add';
     this.modalWindow = true;
 
-    console.log('-->', this.editModeSelected);
-    console.log('-->', this.modalWindow);
   }
 
+  onDeleteCheckedUsers() {
+    this.selectedUser = this.users.filter(user => user.selected);
+    this.selectedUser.forEach(user => this.userService.deleteUser(user));
+  }
+
+  checkbox(user) {
+    user.selected = !!user.selected;
+    this.selectedUser = user;
+  }
 }

@@ -2,3 +2,7 @@ button {
   margin-right: 0;
   float: right;
 }
+
+clr-icon:hover {
+  cursor: pointer;
+}
