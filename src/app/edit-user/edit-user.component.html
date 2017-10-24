@@ -1,4 +1,4 @@
-<clr-modal [(clrModalOpen)]="modalWindow" [clrModalClosable]="false" *ngIf="editModeOn">
+<clr-modal [(clrModalOpen)]="modalWindow" [clrModalClosable]="false" *ngIf="editModeOn === 'edit'">
   <h3 class="modal-title">Edit User</h3>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()" #f="ngForm">
@@ -45,7 +45,7 @@
   </div>
 </clr-modal>
 
-<clr-modal [(clrModalOpen)]="modalWindow" [clrModalClosable]="false">
+<clr-modal [(clrModalOpen)]="modalWindow" [clrModalClosable]="false" *ngIf="editModeOn === 'add'">
   <h3 class="modal-title">Add New User</h3>
   <div class="modal-body">
     <form (ngSubmit)="onSubmit()" #f="ngForm">
@@ -91,4 +91,3 @@
     <button type="button" class="btn btn-primary" (click)="onSubmit()">Add</button>
   </div>
 </clr-modal>
-

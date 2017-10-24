@@ -46,13 +46,15 @@
 </div>
 
 <app-edit-user
+  *ngIf="editModeSelected === 'add'"
+  [editModeOn]="editModeSelected"
   [modalWindow]="modalWindow"
 ></app-edit-user>
 
 <app-edit-user
-  *ngIf="editModeOn"
+  *ngIf="editModeSelected === 'edit'"
   [user]="userForEdit"
-  [editModeOn]="editModeOn"
+  [editModeOn]="editModeSelected"
   [modalWindow]="modalWindow"
 ></app-edit-user>
 

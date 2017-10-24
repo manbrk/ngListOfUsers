@@ -11,7 +11,7 @@ import {User} from '../user.model';
 export class EditUserComponent implements OnInit {
   @ViewChild('f') signupForm: NgForm;
   @Input() modalWindow: boolean;
-  @Input() editModeOn: boolean;
+  @Input() editModeOn: string;
   @Input() user: User;
   newUser: User;
 
@@ -23,12 +23,12 @@ export class EditUserComponent implements OnInit {
   onCancel() {
     console.log('-->', this.user);
     this.userService.modalWindow.emit(false);
-    this.userService.editMode.emit(false);
+    this.userService.editMode.emit(null);
   }
 
   onSubmit() {
     if (this.editModeOn) {
-      this.userService.editMode.emit(false);
+      this.userService.editMode.emit(null);
       console.log('-->', this.user);
     }
 
