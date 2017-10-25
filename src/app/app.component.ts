@@ -57,7 +57,6 @@ export class AppComponent implements OnInit {
   }
 
   checkbox(user) {
-    user.selected = !!user.selected;
     this.selectedUser = user;
   }
 }

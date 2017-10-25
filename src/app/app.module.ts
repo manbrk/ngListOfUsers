@@ -7,11 +7,13 @@ import {UserService} from './user.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { SortableColumnComponent } from './sortable-column/sortable-column.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditUserComponent
+    EditUserComponent,
+    SortableColumnComponent
   ],
   imports: [
     BrowserModule,

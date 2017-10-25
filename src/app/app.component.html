@@ -18,10 +18,26 @@
       <thead>
       <tr>
         <th></th>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>e-mail</th>
-        <th>age</th>
+        <th>
+          <app-sortable-column  [sortableColumn]="firstname" sortDirection="asc">
+            FirstName
+          </app-sortable-column>
+        </th>
+        <th>
+          <app-sortable-column sortableColumn="lastname">
+            LastName
+          </app-sortable-column>
+        </th>
+        <th>
+          <app-sortable-column sortableColumn="email">
+            e-mail
+          </app-sortable-column>
+        </th>
+        <th>
+          <app-sortable-column sortableColumn="age">
+            age
+          </app-sortable-column>
+        </th>
         <th></th>
         <th></th>
       </tr>
