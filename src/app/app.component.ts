@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // this.users = this.userService.getUsers();
 
-    this.getUsers({sortColumn: 'age', sortDirection: 'asc'});
+    this.getUsers({sortColumn: 'firstname', sortDirection: 'asc'});
 
     this.userService.modalWindow
       .subscribe(

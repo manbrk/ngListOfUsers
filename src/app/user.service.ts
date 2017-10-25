@@ -1,6 +1,12 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {User} from './user.model';
 
+export class UserSearchCriteria {
+  sortColumn: 'firstname' | 'lastname' | 'email' | 'age';
+  // sortColumn: string;
+  sortDirection: string;
+}
+
 @Injectable()
 export class UserService {
   modalWindow = new EventEmitter<boolean>();
@@ -13,14 +19,22 @@ export class UserService {
     new User(3, 'John', 'Connor', 'johnconnor@sky.net', 10, false),
   ];
 
+  sortUsers = this.users.slice();
+
   getUsers(criteria: UserSearchCriteria): User[] {
-    return this.users.sort((a, b) => {
+    const users = this.sortUsers.slice().sort((a, b) => {
+      const columnA = a[criteria.sortColumn];
+      console.log('-->', columnA);
+      const columnB = b[criteria.sortColumn].toLowerCase();
+
       if (criteria.sortDirection === 'desc') {
-        return a[criteria.sortColumn] < b[criteria.sortColumn];
+        return columnA.localeCompare(columnB);
       } else {
-        return a[criteria.sortColumn] > b[criteria.sortColumn];
+        return columnB.localeCompare(columnA);
       }
     });
+
+    return users;
   }
 
   addUser(user: User) {
@@ -32,7 +46,3 @@ export class UserService {
   }
 }
 
-export class UserSearchCriteria {
-  sortColumn: string;
-  sortDirection: string;
-}
