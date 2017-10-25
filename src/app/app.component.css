@@ -10,3 +10,7 @@
 clr-icon:hover {
   cursor: pointer;
 }
+
+th {
+  cursor: default;
+}
