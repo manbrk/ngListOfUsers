@@ -25,3 +25,8 @@ export class UserService {
     this.users.splice(this.users.indexOf(user), 1);
   }
 }
+
+export class UserSearchCriteria {
+  sortColumn: string;
+  sortDirection: string;
+}

@@ -9,12 +9,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { SortableColumnComponent } from './sortable-column/sortable-column.component';
+import { SortableTableDirective } from './sortable-column/sortable-table.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditUserComponent,
-    SortableColumnComponent
+    SortableColumnComponent,
+    SortableTableDirective
   ],
   imports: [
     BrowserModule,

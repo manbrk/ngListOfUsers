@@ -14,7 +14,7 @@
 
 <div class="row flex-items-xs-center">
   <div class="col-xs-8">
-    <table class="table">
+    <table class="table" appSortableTable (sorted)="onSorted($event)">
       <thead>
       <tr>
         <th></th>
