@@ -13,8 +13,14 @@ export class UserService {
     new User(3, 'John', 'Connor', 'johnconnor@sky.net', 10, false),
   ];
 
-  getUsers() {
-    return this.users;
+  getUsers(criteria: UserSearchCriteria): User[] {
+    return this.users.sort((a, b) => {
+      if (criteria.sortDirection === 'desc') {
+        return a[criteria.sortColumn] < b[criteria.sortColumn];
+      } else {
+        return a[criteria.sortColumn] > b[criteria.sortColumn];
+      }
+    });
   }
 
   addUser(user: User) {

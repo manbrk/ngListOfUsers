@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from './user.model';
-import {UserService} from './user.service';
+import {UserSearchCriteria, UserService} from './user.service';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +17,18 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
+  getUsers(criteria: UserSearchCriteria) {
+    this.users = this.userService.getUsers(criteria);
+  }
+
+  onSorted($event) {
+    this.getUsers($event);
+  }
+
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    // this.users = this.userService.getUsers();
+
+    this.getUsers({sortColumn: 'age', sortDirection: 'asc'});
 
     this.userService.modalWindow
       .subscribe(
