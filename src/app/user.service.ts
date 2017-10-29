@@ -21,21 +21,25 @@ export class UserService {
 
   sortUsers = this.users.slice();
 
-  getUsers(criteria: UserSearchCriteria): User[] {
-    const users = this.sortUsers.slice().sort((a, b) => {
-      const columnA = a[criteria.sortColumn];
-      console.log('-->', columnA);
-      const columnB = b[criteria.sortColumn].toLowerCase();
-
-      if (criteria.sortDirection === 'desc') {
-        return columnA.localeCompare(columnB);
-      } else {
-        return columnB.localeCompare(columnA);
-      }
-    });
-
-    return users;
+  getUsers() {
+    return this.users;
   }
+
+  // getUsers(criteria: UserSearchCriteria): User[] {
+  //   const users = this.sortUsers.slice().sort((a, b) => {
+  //     const columnA = a[criteria.sortColumn];
+  //     console.log('-->', columnA);
+  //     const columnB = b[criteria.sortColumn].toLowerCase();
+  //
+  //     if (criteria.sortDirection === 'desc') {
+  //       return columnA.localeCompare(columnB);
+  //     } else {
+  //       return columnB.localeCompare(columnA);
+  //     }
+  //   });
+  //
+  //   return users;
+  // }
 
   addUser(user: User) {
     this.users.push(user);

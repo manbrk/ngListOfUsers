@@ -17,18 +17,18 @@ export class AppComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  getUsers(criteria: UserSearchCriteria) {
-    this.users = this.userService.getUsers(criteria);
-  }
+  // getUsers(criteria: UserSearchCriteria) {
+  //   this.users = this.userService.getUsers(criteria);
+  // }
 
-  onSorted($event) {
-    this.getUsers($event);
-  }
+  // onSorted($event) {
+  //   this.getUsers($event);
+  // }
 
   ngOnInit() {
-    // this.users = this.userService.getUsers();
+    this.users = this.userService.getUsers();
 
-    this.getUsers({sortColumn: 'firstname', sortDirection: 'asc'});
+    // this.getUsers({sortColumn: 'firstname', sortDirection: 'asc'});
 
     this.userService.modalWindow
       .subscribe(
